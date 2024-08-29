@@ -1,0 +1,22 @@
+{
+    "version": "1.0",
+    "name": "aika/utils",
+    "description": "PHP Utils Class",
+    "type": "library",
+    "require": {
+        "php": "^7.3 || ^8.0",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Aika\\Utils\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Donatien Kamary",
+            "email": "donatkamary@gmail.com"
+        }
+    ]
+}
