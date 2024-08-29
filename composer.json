@@ -1,7 +1,7 @@
 {
     "version": "1.0.0",
     "name": "aika/utils",
-    "description": "PHP Utils Class",
+    "description": "PHP utility classes",
     "type": "library",
     "require": {
         "php": "^7.3 || ^8.0",

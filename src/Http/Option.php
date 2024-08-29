@@ -8,7 +8,7 @@ class Option
 
     public function __construct(array $options = [])
     {
-        $this->options = $options;
+        $this->setOptions($options);
     }
 
     public function getOptions(): array
