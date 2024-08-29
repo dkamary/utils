@@ -78,4 +78,38 @@ class Collection implements ArrayAccess, Iterator
     {
         return count($this->items);
     }
+
+    public function search($search, ?callable $searchFunction = null): array
+    {
+        $result = [];
+
+        foreach ($this->items as $key => $data) {
+
+            if ($searchFunction && $searchFunction($key, $data, $search)) {
+
+                $result[$key] = $data;
+                continue;
+            }
+            
+            if (is_string($key)) {
+                
+                if (is_string($search) && strcasecmp($key, trim($search)) == 0) {
+                    
+                    $result[$key] = $data;
+                    continue;
+
+                }
+            }
+
+            if (is_string($data) && strcasecmp($data, trim($search)) == 0) {
+
+                $result[$key] = $data;
+                continue;
+
+            }
+            
+        }
+
+        return $result;
+    }
 }
