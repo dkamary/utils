@@ -6,6 +6,7 @@ use Aika\Utils\Transactions\ResultInterface;
 
 interface ClientInterface
 {
+    public function name(): string;
     public function request(string $method, string $uri, Option $options): ResultInterface;
     public function get(string $uri, Option $options): ResultInterface;
     public function post(string $uri, Option $options): ResultInterface;

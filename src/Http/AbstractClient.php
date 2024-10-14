@@ -26,6 +26,11 @@ abstract class AbstractClient implements ClientInterface
         self::METHOD_DELETE,
         self::METHOD_HEAD,
     ];
+    
+    public function name(): string
+    {
+        return 'AbstractClient';
+    }
 
     public function request(string $method, string $uri, Option $options): ResultInterface
     {
