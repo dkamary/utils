@@ -11,4 +11,5 @@ interface ClientInterface
     public function post(string $uri, Option $options): ResultInterface;
     public function put(string $uri, Option $options): ResultInterface;
     public function delete(string $uri, Option $options): ResultInterface;
+    public function head(string $url, Option $optiions): ResultInterface;
 }

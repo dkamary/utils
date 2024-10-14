@@ -66,6 +66,11 @@ abstract class AbstractResult implements ResultInterface
         return self::STATUS_TEXT[$this->status] ?? self::STATUS_TEXT[self::UNKNOW] ?? 'unknow';
     }
 
+    public function is(int $status): bool
+    {
+        return $this->status == $status;
+    }
+
     public function isSuccess(): bool
     {
         return in_array($this->status, self::SUCCESS_STATUS);

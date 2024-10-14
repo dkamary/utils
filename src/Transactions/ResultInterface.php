@@ -7,6 +7,7 @@ interface ResultInterface
     public function setStatus(int $status): self;
     public function getStatus(): int;
     public function getStatusText(): string;
+    public function is(int $status): bool;
     public function isSuccess(): bool;
     public function isWarning(): bool;
     public function isError(): bool;

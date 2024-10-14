@@ -13,16 +13,18 @@ use Throwable;
 
 abstract class AbstractClient implements ClientInterface
 {
-    const METHOD_GET = 'GET';
-    const METHOD_POST = 'POST';
-    const METHOD_PUT = 'PUT';
-    const METHOD_DELETE = 'DELETE';
+    const METHOD_GET        = 'GET';
+    const METHOD_POST       = 'POST';
+    const METHOD_PUT        = 'PUT';
+    const METHOD_DELETE     = 'DELETE';
+    const METHOD_HEAD       = 'HEAD';
 
     const METHOD_ALLOWED = [
         self::METHOD_GET,
         self::METHOD_POST,
         self::METHOD_PUT,
         self::METHOD_DELETE,
+        self::METHOD_HEAD,
     ];
 
     public function request(string $method, string $uri, Option $options): ResultInterface
@@ -136,16 +138,22 @@ abstract class AbstractClient implements ClientInterface
         return $this->request(self::METHOD_DELETE, $uri, $options);
     }
 
+    public function head(string $url, Option $options): ResultInterface
+    {
+        return $this->request(self::METHOD_HEAD, $url, $options);
+    }
+
     private function execute(string $method, string $uri, array $options): ResponseInterface
     {
         $client = new Client();
-        // var_dump($options);
 
         if (self::METHOD_POST == $method) return $client->post($uri, $options);
 
         if (self::METHOD_PUT == $method) return $client->put($uri, $options);
 
         if (self::METHOD_DELETE == $method) return $client->delete($uri, $options);
+
+        if (self::METHOD_HEAD == $method) return $client->head($uri, $options);
 
         return $client->get($uri, $options);
     }
