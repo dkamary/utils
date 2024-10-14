@@ -8,4 +8,9 @@ class Client extends AbstractClient
     {
         // 
     }
+
+    public function name(): string
+    {
+        return 'Client';
+    }
 }
